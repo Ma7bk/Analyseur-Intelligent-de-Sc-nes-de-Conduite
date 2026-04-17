@@ -305,7 +305,6 @@ class HighwaySceneAgent:
             )
             msg = response.choices[0].message
 
-            # L'agent appelle des outils
             if msg.tool_calls:
                 messages.append({
                     "role": "assistant",

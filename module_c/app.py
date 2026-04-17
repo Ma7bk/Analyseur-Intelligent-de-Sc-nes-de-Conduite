@@ -88,9 +88,8 @@ def run_detection(model, image: Image.Image, conf: float, iou: float):
 
     annotated = image.copy()
     draw = ImageDraw.Draw(annotated)
-    cls_map = {0:"car",1:"truck",2:"bus",3:"pedestrian",
-               4:"rider",5:"traffic sign",6:"traffic light"}
-
+    cls_map = {0: "car", 1: "truck", 2: "bus", 3: "pedestrian",
+               4: "rider", 5: "traffic sign", 6: "traffic light"}
     for box in results[0].boxes:
         x1, y1, x2, y2 = [int(v) for v in box.xyxy[0].tolist()]
         conf_val = float(box.conf[0])
@@ -209,7 +208,7 @@ def detection_chart(detections: dict) -> go.Figure:
 
 def main():
     st.markdown("## 🛣️ Analyseur Intelligent de Scènes Autoroutières")
-    st.markdown("*YOLOv8 + Agent LLM (Llama 3.3 via Groq) · Scénario : Autoroute*")
+    st.markdown("*YOLO+ Agent LLM (Llama 3.3 via Groq) · Scénario : Autoroute*")
     st.divider()
 
     groq_ok  = bool(GROQ_API_KEY)
